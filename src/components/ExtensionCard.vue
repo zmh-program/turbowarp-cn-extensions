@@ -1,4 +1,5 @@
 <script setup lang="ts">
+//@ts-ignore
 import { ElNotification } from 'element-plus'
 
 const props = defineProps<{

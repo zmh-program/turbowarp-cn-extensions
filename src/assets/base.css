@@ -59,7 +59,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#app {
+body {
   width: 100%;
   object-fit: cover;
   background-image: url("https://s1.ax1x.com/2023/05/22/p9okyfs.jpg");

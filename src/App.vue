@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import ExtensionCard from "@/components/ExtensionCard.vue";
 </script>
 
