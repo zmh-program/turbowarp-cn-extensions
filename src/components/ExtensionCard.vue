@@ -1,5 +1,43 @@
 <script setup lang="ts">
+import { ElNotification } from 'element-plus'
 
+const props = defineProps<{
+  data: string,
+}>();
+const name: string = props.data;
+
+function open(): void {
+  window.open(
+      `https://turbowarp.cn/editor.html?extension=${location.origin}/extensions/${name}.js`,
+  );
+}
+function copy(){
+  const url: string = `${location.origin}/extensions/${name}.js`;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url)
+        .then(() => {
+          ElNotification({
+            title: '复制成功！',
+            message: '已将链接复制到剪贴板！',
+            type: 'success',
+          })
+        })
+        .catch(() => {
+          ElNotification({
+            title: '复制失败！',
+            message: '无法将链接复制到剪贴板！请手动复制！\n' + url,
+            type: 'error',
+          })
+        });
+  } else {
+      ElNotification({
+        title: '复制失败！',
+        message: '无法将链接复制到剪贴板！请手动复制！\n' + url,
+        type: 'error',
+      })
+  }
+}
 </script>
 
 <template>
@@ -17,14 +55,14 @@
     <footer style="display: flex; flex-direction: row; gap: 6px; float: right; transform: translate(16px, 26px)">
       <el-popover placement="top-start" trigger="hover" :show-after="250" :hide-after="250" content="打开扩展">
         <template #reference>
-          <div class="icon">
+          <div class="icon" @click="open">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 3h-7a2.98 2.98 0 0 0-2 .78A2.98 2.98 0 0 0 10 3H3a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h5.758a2.01 2.01 0 0 1 1.414.586l1.121 1.121c.009.009.021.012.03.021.086.08.182.15.294.196h.002a.996.996 0 0 0 .762 0h.002c.112-.046.208-.117.294-.196.009-.009.021-.012.03-.021l1.121-1.121A2.01 2.01 0 0 1 15.242 20H21a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 15h-4.758a4.03 4.03 0 0 0-2.242.689V6c0-.551.448-1 1-1h6v13z"></path></svg>
           </div>
         </template>
       </el-popover>
       <el-popover placement="top-start" trigger="hover" :show-after="250" :hide-after="250" content="复制链接">
         <template #reference>
-          <div class="icon">
+          <div class="icon" @click="copy">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z"></path><path d="M6 12h6v2H6zm0 4h6v2H6z"></path></svg>
           </div>
         </template>
