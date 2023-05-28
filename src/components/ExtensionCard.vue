@@ -14,7 +14,7 @@
     <main>
       <span class="description"><slot name="desc" /></span>
     </main>
-    <footer style="display: flex; flex-direction: row; gap: 6px; float: right">
+    <footer style="display: flex; flex-direction: row; gap: 6px; float: right; transform: translate(16px, 26px)">
       <el-popover placement="top-start" trigger="hover" :show-after="250" :hide-after="250" content="打开扩展">
         <template #reference>
           <div class="icon">
@@ -36,7 +36,7 @@
 <style scoped>
 .card {
   width: 400px;
-  background: rgba(255,255,255,.2);
+  background: rgba(30,30,30,.8);
   backdrop-filter: blur(2px);
   border-radius: 10px;
   margin: 18px auto;
@@ -44,10 +44,11 @@
   color: #fff;
   font-weight: bold !important;
   transition: .25s ease-in;
+  box-shadow: rgba(0,0,0,.2) 0 10px 30px;
 }
 
 .card:hover {
-  background: rgba(255,255,255,.25);
+  background: rgba(30,30,30,.95);
 }
 
 .name {
@@ -78,7 +79,7 @@
   width: 32px;
   height: 32px;
   display: block;
-  background: rgba(255,255,255,.4);
+  background: rgba(130,130,130,0.2);
   backdrop-filter: blur(2px);
   padding: 4px;
   border-radius: 4px;

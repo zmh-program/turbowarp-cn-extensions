@@ -5,13 +5,10 @@ import ExtensionCard from "@/components/ExtensionCard.vue";
 
 <template>
   <main>
-    <img class="background" src="https://s1.ax1x.com/2023/05/22/p9okyfs.jpg" alt="">
     <div class="title">
       <h1>TurboWarp 第三方扩展</h1>
     </div>
-    <main>
-      <h2 class="category-title">投稿</h2>
-      <section class="extensions">
+    <section class="container">
         <ExtensionCard>
           <template v-slot:name>Recording</template>
           <template v-slot:author>-SPIC-</template>
@@ -91,12 +88,9 @@ import ExtensionCard from "@/components/ExtensionCard.vue";
         </ExtensionCard>
 
         <!-- 更多扩展 -->
-      </section>
-    </main>
-    <footer class="section" style="text-align:center;">
-      <div class="links">
-        <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Hgd2J7dxazSx1QE462aKjLi5CXcm5U4G&authKey=Vb%2FA%2BFamtI97LgQkc3LWA0bE%2Bc1W1%2FonuAqfrtaZNRmz3Ia%2Fks%2Bfbd37UPd81xn1&noverify=0&group_code=770741679">提交你的扩展</a>
-      </div>
+    </section>
+    <footer class="post">
+        <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Hgd2J7dxazSx1QE462aKjLi5CXcm5U4G&authKey=Vb%2FA%2BFamtI97LgQkc3LWA0bE%2Bc1W1%2FonuAqfrtaZNRmz3Ia%2Fks%2Bfbd37UPd81xn1&noverify=0&group_code=770741679">提交你的扩展</a>
     </footer>
   </main>
 </template>
@@ -106,19 +100,14 @@ main {
   display: flex;
   flex-direction: column;
 }
-.background {
-  width: 100%;
-  object-fit: cover;
-  position: absolute;
-  z-index: -1;
-}
 .title {
   padding: 40px 45px;
   width: max-content;
   background: rgba(255,255,255,.1);
   backdrop-filter: blur(5px);
   border-radius: 10px;
-  margin: 18px auto;
+  margin: 68px auto;
+  top: 50%;
   color: #fff;
   font-weight: bold !important;
   transition: .25s ease-in;
@@ -126,5 +115,22 @@ main {
 
 .title:hover {
   background: rgba(255,255,255,.2);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px 40px;
+  gap: 12px;
+}
+
+.post {
+  text-align:center;
+  margin: 24px auto 16px;
+}
+
+.post a {
+  padding: 0 4px;
 }
 </style>
