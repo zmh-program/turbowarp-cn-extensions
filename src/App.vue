@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+
 </script>
 
 <template>
-  <header>
+  <main>
+  <div class="title">
     <h1>TurboWarp 第三方扩展</h1>
-  </header>
+  </div>
   <main>
     <h2 class="category-title">投稿</h2>
     <section class="extensions">
@@ -88,17 +89,26 @@ import { RouterLink, RouterView } from 'vue-router'
         <button id="copy">复制URL</button>
       </article>
       <!-- 更多扩展 -->
-      <!-- <h2 class="category-title">搬运</h2> -->
     </section>
   </main>
-  <script src="scripts.js"></script>
   <footer class="section" style="text-align:center;">
     <div class="links">
       <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Hgd2J7dxazSx1QE462aKjLi5CXcm5U4G&authKey=Vb%2FA%2BFamtI97LgQkc3LWA0bE%2Bc1W1%2FonuAqfrtaZNRmz3Ia%2Fks%2Bfbd37UPd81xn1&noverify=0&group_code=770741679">提交你的扩展</a>
     </div>
   </footer>
+  </main>
 </template>
 
 <style scoped>
-
+main {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  width: 100%;
+  padding: 40px 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold !important;
+}
 </style>
